@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ease_my_health/helpers/theme_colors.dart';
-import 'package:ease_my_health/pages/welcome_page.dart';
+import 'package:ease_my_health/features/auth/presentation/screens/welcome_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    const ProviderScope(
+      child:MyApp()
+      ),
+      );
 }
 
 class MyApp extends StatelessWidget {

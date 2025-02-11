@@ -34,6 +34,7 @@ class SearchPageState extends State<SearchPage> {
             border: InputBorder.none,
           ),
         ),
+        backgroundColor:Color(0xFF95E1B9) ,
       ),
       body: Column(
         children: [

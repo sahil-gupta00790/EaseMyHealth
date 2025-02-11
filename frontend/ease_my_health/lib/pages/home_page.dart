@@ -1,4 +1,4 @@
-import 'package:ease_my_health/helpers/custom_page_route.dart';
+import 'package:ease_my_health/core/routing/custom_page_route.dart';
 import 'package:ease_my_health/pages/appointment_page.dart';
 import 'package:ease_my_health/pages/search_page.dart';
 import 'package:flutter/material.dart';
@@ -214,7 +214,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
           child: Text('Hospitals Nearby', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Color(0xFFF5F5F5))),
         ),
-        Container(
+        SizedBox(
           height: 150,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
