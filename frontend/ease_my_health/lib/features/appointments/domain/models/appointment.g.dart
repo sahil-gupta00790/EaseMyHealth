@@ -9,19 +9,17 @@ part of 'appointment.dart';
 _$AppointmentImpl _$$AppointmentImplFromJson(Map<String, dynamic> json) =>
     _$AppointmentImpl(
       id: json['id'] as String,
-      doctorName: json['doctorName'] as String,
-      specialization: json['specialization'] as String,
+      doctorId: json['doctorId'] as String,
+      patientId: json['patientId'] as String,
       dateTime: DateTime.parse(json['dateTime'] as String),
       status: json['status'] as String,
-      isVirtual: json['isVirtual'] as bool,
     );
 
 Map<String, dynamic> _$$AppointmentImplToJson(_$AppointmentImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'doctorName': instance.doctorName,
-      'specialization': instance.specialization,
+      'doctorId': instance.doctorId,
+      'patientId': instance.patientId,
       'dateTime': instance.dateTime.toIso8601String(),
       'status': instance.status,
-      'isVirtual': instance.isVirtual,
     };

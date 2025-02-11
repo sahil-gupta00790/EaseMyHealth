@@ -6,7 +6,24 @@ part of 'home_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$homeHash() => r'd0947fdcef6a0f45dba183c54cf97d089e5fc622';
+String _$homeRepositoryHash() => r'a7ad35b71d152c2f2e026facffd4f91979e425ab';
+
+/// See also [homeRepository].
+@ProviderFor(homeRepository)
+final homeRepositoryProvider = AutoDisposeProvider<HomeRepository>.internal(
+  homeRepository,
+  name: r'homeRepositoryProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$homeRepositoryHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef HomeRepositoryRef = AutoDisposeProviderRef<HomeRepository>;
+String _$homeHash() => r'0165fafd2cf627b9afb289e73deae4387ed67d48';
 
 /// See also [Home].
 @ProviderFor(Home)

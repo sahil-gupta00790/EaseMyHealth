@@ -11,7 +11,7 @@ class UpcomingAppointmentsSection extends ConsumerWidget {
     final homeState = ref.watch(homeProvider);
 
     return SizedBox(
-      height: 200,
+      height: 264,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

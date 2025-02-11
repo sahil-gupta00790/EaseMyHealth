@@ -1,34 +1,44 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../domain/model/doctor.dart';
-import '../domain/model/hospital.dart';
-import '../domain/model/appointment.dart';
+import '../data/repositories/home_repository.dart';
 import 'home_state.dart';
+
 part 'home_providers.g.dart';
 
 @riverpod
 class Home extends _$Home {
+  late final HomeRepository _repository = HomeRepository();
+
   @override
   FutureOr<HomeState> build() async {
-    return await fetchAllData(); // Automatically fetch data on provider initialization
+    return await fetchAllData();
   }
 
   Future<HomeState> fetchAllData() async {
     state = const AsyncLoading();
     try {
-      await Future.delayed(const Duration(seconds: 1));
+      final doctors = await _repository.fetchNearbyDoctors();
+      final hospitals = await _repository.fetchNearbyHospitals();
+      final appointments = await _repository.fetchUpcomingAppointments();
+
       return HomeState(
-        nearbyDoctors: [
-          Doctor(id: '1', name: 'Dr. Priyanshu', specialization: 'Gym trainer', imageUrl: 'assets/images/image.png'),
-        ],
-        nearbyHospitals: [
-          Hospital(id: '1', name: 'City Hospital', imageUrl: 'assets/images/hospital.png'),
-        ],
-        upcomingAppointments: [
-          Appointment(id: '1', doctorName: 'Dr. YashRaj Kumawat', specialization: 'Cardiology Consultation', dateTime: DateTime(2024, 2, 15, 10, 0), status: 'Scheduled'),
-        ],
+        nearbyDoctors: doctors,
+        nearbyHospitals: hospitals,
+        upcomingAppointments: appointments,
       );
-    } catch (e, st) {
-      throw AsyncError(e, st);
+    } catch (e) {
+      return HomeState(errorMessage: e.toString());
     }
   }
+
+  Future<void> refreshData() async {
+    state = const AsyncLoading();
+    state = AsyncData(await fetchAllData());
+  }
+}
+
+// Provider for the repository
+@riverpod
+HomeRepository homeRepository(Ref ref) {
+  return HomeRepository();
 }

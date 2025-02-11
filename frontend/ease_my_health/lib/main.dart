@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Picco',
       theme: ThemeData(
         primaryColor: ThemeColors.primaryColor,
         scaffoldBackgroundColor: ThemeColors.scaffoldBgColor,

@@ -21,11 +21,10 @@ Appointment _$AppointmentFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Appointment {
   String get id => throw _privateConstructorUsedError;
-  String get doctorName => throw _privateConstructorUsedError;
-  String get specialization => throw _privateConstructorUsedError;
+  String get doctorId => throw _privateConstructorUsedError;
+  String get patientId => throw _privateConstructorUsedError;
   DateTime get dateTime => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
-  bool get isVirtual => throw _privateConstructorUsedError;
 
   /// Serializes this Appointment to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,11 +44,10 @@ abstract class $AppointmentCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String doctorName,
-      String specialization,
+      String doctorId,
+      String patientId,
       DateTime dateTime,
-      String status,
-      bool isVirtual});
+      String status});
 }
 
 /// @nodoc
@@ -68,24 +66,23 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
   @override
   $Res call({
     Object? id = null,
-    Object? doctorName = null,
-    Object? specialization = null,
+    Object? doctorId = null,
+    Object? patientId = null,
     Object? dateTime = null,
     Object? status = null,
-    Object? isVirtual = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      doctorName: null == doctorName
-          ? _value.doctorName
-          : doctorName // ignore: cast_nullable_to_non_nullable
+      doctorId: null == doctorId
+          ? _value.doctorId
+          : doctorId // ignore: cast_nullable_to_non_nullable
               as String,
-      specialization: null == specialization
-          ? _value.specialization
-          : specialization // ignore: cast_nullable_to_non_nullable
+      patientId: null == patientId
+          ? _value.patientId
+          : patientId // ignore: cast_nullable_to_non_nullable
               as String,
       dateTime: null == dateTime
           ? _value.dateTime
@@ -95,10 +92,6 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      isVirtual: null == isVirtual
-          ? _value.isVirtual
-          : isVirtual // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 }
@@ -113,11 +106,10 @@ abstract class _$$AppointmentImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String doctorName,
-      String specialization,
+      String doctorId,
+      String patientId,
       DateTime dateTime,
-      String status,
-      bool isVirtual});
+      String status});
 }
 
 /// @nodoc
@@ -134,24 +126,23 @@ class __$$AppointmentImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? doctorName = null,
-    Object? specialization = null,
+    Object? doctorId = null,
+    Object? patientId = null,
     Object? dateTime = null,
     Object? status = null,
-    Object? isVirtual = null,
   }) {
     return _then(_$AppointmentImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      doctorName: null == doctorName
-          ? _value.doctorName
-          : doctorName // ignore: cast_nullable_to_non_nullable
+      doctorId: null == doctorId
+          ? _value.doctorId
+          : doctorId // ignore: cast_nullable_to_non_nullable
               as String,
-      specialization: null == specialization
-          ? _value.specialization
-          : specialization // ignore: cast_nullable_to_non_nullable
+      patientId: null == patientId
+          ? _value.patientId
+          : patientId // ignore: cast_nullable_to_non_nullable
               as String,
       dateTime: null == dateTime
           ? _value.dateTime
@@ -161,10 +152,6 @@ class __$$AppointmentImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      isVirtual: null == isVirtual
-          ? _value.isVirtual
-          : isVirtual // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -174,11 +161,10 @@ class __$$AppointmentImplCopyWithImpl<$Res>
 class _$AppointmentImpl implements _Appointment {
   const _$AppointmentImpl(
       {required this.id,
-      required this.doctorName,
-      required this.specialization,
+      required this.doctorId,
+      required this.patientId,
       required this.dateTime,
-      required this.status,
-      required this.isVirtual});
+      required this.status});
 
   factory _$AppointmentImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppointmentImplFromJson(json);
@@ -186,19 +172,17 @@ class _$AppointmentImpl implements _Appointment {
   @override
   final String id;
   @override
-  final String doctorName;
+  final String doctorId;
   @override
-  final String specialization;
+  final String patientId;
   @override
   final DateTime dateTime;
   @override
   final String status;
-  @override
-  final bool isVirtual;
 
   @override
   String toString() {
-    return 'Appointment(id: $id, doctorName: $doctorName, specialization: $specialization, dateTime: $dateTime, status: $status, isVirtual: $isVirtual)';
+    return 'Appointment(id: $id, doctorId: $doctorId, patientId: $patientId, dateTime: $dateTime, status: $status)';
   }
 
   @override
@@ -207,21 +191,19 @@ class _$AppointmentImpl implements _Appointment {
         (other.runtimeType == runtimeType &&
             other is _$AppointmentImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.doctorName, doctorName) ||
-                other.doctorName == doctorName) &&
-            (identical(other.specialization, specialization) ||
-                other.specialization == specialization) &&
+            (identical(other.doctorId, doctorId) ||
+                other.doctorId == doctorId) &&
+            (identical(other.patientId, patientId) ||
+                other.patientId == patientId) &&
             (identical(other.dateTime, dateTime) ||
                 other.dateTime == dateTime) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.isVirtual, isVirtual) ||
-                other.isVirtual == isVirtual));
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, doctorName, specialization, dateTime, status, isVirtual);
+  int get hashCode =>
+      Object.hash(runtimeType, id, doctorId, patientId, dateTime, status);
 
   /// Create a copy of Appointment
   /// with the given fields replaced by the non-null parameter values.
@@ -242,11 +224,10 @@ class _$AppointmentImpl implements _Appointment {
 abstract class _Appointment implements Appointment {
   const factory _Appointment(
       {required final String id,
-      required final String doctorName,
-      required final String specialization,
+      required final String doctorId,
+      required final String patientId,
       required final DateTime dateTime,
-      required final String status,
-      required final bool isVirtual}) = _$AppointmentImpl;
+      required final String status}) = _$AppointmentImpl;
 
   factory _Appointment.fromJson(Map<String, dynamic> json) =
       _$AppointmentImpl.fromJson;
@@ -254,15 +235,13 @@ abstract class _Appointment implements Appointment {
   @override
   String get id;
   @override
-  String get doctorName;
+  String get doctorId;
   @override
-  String get specialization;
+  String get patientId;
   @override
   DateTime get dateTime;
   @override
   String get status;
-  @override
-  bool get isVirtual;
 
   /// Create a copy of Appointment
   /// with the given fields replaced by the non-null parameter values.

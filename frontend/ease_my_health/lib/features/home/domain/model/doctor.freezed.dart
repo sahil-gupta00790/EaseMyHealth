@@ -24,6 +24,10 @@ mixin _$Doctor {
   String get name => throw _privateConstructorUsedError;
   String get specialization => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
+  double get rating => throw _privateConstructorUsedError;
+  int get experience => throw _privateConstructorUsedError;
+  bool get isAvailable => throw _privateConstructorUsedError;
+  String get nextAvailableTime => throw _privateConstructorUsedError;
 
   /// Serializes this Doctor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +43,15 @@ abstract class $DoctorCopyWith<$Res> {
   factory $DoctorCopyWith(Doctor value, $Res Function(Doctor) then) =
       _$DoctorCopyWithImpl<$Res, Doctor>;
   @useResult
-  $Res call({String id, String name, String specialization, String imageUrl});
+  $Res call(
+      {String id,
+      String name,
+      String specialization,
+      String imageUrl,
+      double rating,
+      int experience,
+      bool isAvailable,
+      String nextAvailableTime});
 }
 
 /// @nodoc
@@ -61,6 +73,10 @@ class _$DoctorCopyWithImpl<$Res, $Val extends Doctor>
     Object? name = null,
     Object? specialization = null,
     Object? imageUrl = null,
+    Object? rating = null,
+    Object? experience = null,
+    Object? isAvailable = null,
+    Object? nextAvailableTime = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -79,6 +95,22 @@ class _$DoctorCopyWithImpl<$Res, $Val extends Doctor>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      rating: null == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+      experience: null == experience
+          ? _value.experience
+          : experience // ignore: cast_nullable_to_non_nullable
+              as int,
+      isAvailable: null == isAvailable
+          ? _value.isAvailable
+          : isAvailable // ignore: cast_nullable_to_non_nullable
+              as bool,
+      nextAvailableTime: null == nextAvailableTime
+          ? _value.nextAvailableTime
+          : nextAvailableTime // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -90,7 +122,15 @@ abstract class _$$DoctorImplCopyWith<$Res> implements $DoctorCopyWith<$Res> {
       __$$DoctorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String specialization, String imageUrl});
+  $Res call(
+      {String id,
+      String name,
+      String specialization,
+      String imageUrl,
+      double rating,
+      int experience,
+      bool isAvailable,
+      String nextAvailableTime});
 }
 
 /// @nodoc
@@ -110,6 +150,10 @@ class __$$DoctorImplCopyWithImpl<$Res>
     Object? name = null,
     Object? specialization = null,
     Object? imageUrl = null,
+    Object? rating = null,
+    Object? experience = null,
+    Object? isAvailable = null,
+    Object? nextAvailableTime = null,
   }) {
     return _then(_$DoctorImpl(
       id: null == id
@@ -128,6 +172,22 @@ class __$$DoctorImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      rating: null == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+      experience: null == experience
+          ? _value.experience
+          : experience // ignore: cast_nullable_to_non_nullable
+              as int,
+      isAvailable: null == isAvailable
+          ? _value.isAvailable
+          : isAvailable // ignore: cast_nullable_to_non_nullable
+              as bool,
+      nextAvailableTime: null == nextAvailableTime
+          ? _value.nextAvailableTime
+          : nextAvailableTime // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -139,7 +199,11 @@ class _$DoctorImpl implements _Doctor {
       {required this.id,
       required this.name,
       required this.specialization,
-      required this.imageUrl});
+      required this.imageUrl,
+      required this.rating,
+      required this.experience,
+      required this.isAvailable,
+      required this.nextAvailableTime});
 
   factory _$DoctorImpl.fromJson(Map<String, dynamic> json) =>
       _$$DoctorImplFromJson(json);
@@ -152,10 +216,18 @@ class _$DoctorImpl implements _Doctor {
   final String specialization;
   @override
   final String imageUrl;
+  @override
+  final double rating;
+  @override
+  final int experience;
+  @override
+  final bool isAvailable;
+  @override
+  final String nextAvailableTime;
 
   @override
   String toString() {
-    return 'Doctor(id: $id, name: $name, specialization: $specialization, imageUrl: $imageUrl)';
+    return 'Doctor(id: $id, name: $name, specialization: $specialization, imageUrl: $imageUrl, rating: $rating, experience: $experience, isAvailable: $isAvailable, nextAvailableTime: $nextAvailableTime)';
   }
 
   @override
@@ -168,13 +240,20 @@ class _$DoctorImpl implements _Doctor {
             (identical(other.specialization, specialization) ||
                 other.specialization == specialization) &&
             (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+                other.imageUrl == imageUrl) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.experience, experience) ||
+                other.experience == experience) &&
+            (identical(other.isAvailable, isAvailable) ||
+                other.isAvailable == isAvailable) &&
+            (identical(other.nextAvailableTime, nextAvailableTime) ||
+                other.nextAvailableTime == nextAvailableTime));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, specialization, imageUrl);
+  int get hashCode => Object.hash(runtimeType, id, name, specialization,
+      imageUrl, rating, experience, isAvailable, nextAvailableTime);
 
   /// Create a copy of Doctor
   /// with the given fields replaced by the non-null parameter values.
@@ -197,7 +276,11 @@ abstract class _Doctor implements Doctor {
       {required final String id,
       required final String name,
       required final String specialization,
-      required final String imageUrl}) = _$DoctorImpl;
+      required final String imageUrl,
+      required final double rating,
+      required final int experience,
+      required final bool isAvailable,
+      required final String nextAvailableTime}) = _$DoctorImpl;
 
   factory _Doctor.fromJson(Map<String, dynamic> json) = _$DoctorImpl.fromJson;
 
@@ -209,6 +292,14 @@ abstract class _Doctor implements Doctor {
   String get specialization;
   @override
   String get imageUrl;
+  @override
+  double get rating;
+  @override
+  int get experience;
+  @override
+  bool get isAvailable;
+  @override
+  String get nextAvailableTime;
 
   /// Create a copy of Doctor
   /// with the given fields replaced by the non-null parameter values.

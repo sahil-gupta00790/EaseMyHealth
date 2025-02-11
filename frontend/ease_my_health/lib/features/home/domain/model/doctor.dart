@@ -10,6 +10,10 @@ class Doctor with _$Doctor {
     required String name,
     required String specialization,
     required String imageUrl,
+    required double rating,
+    required int experience,
+    required bool isAvailable,
+    required String nextAvailableTime,
   }) = _Doctor;
 
   factory Doctor.fromJson(Map<String, dynamic> json) => _$DoctorFromJson(json);

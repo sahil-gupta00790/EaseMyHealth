@@ -25,7 +25,7 @@ class HospitalsNearbySection extends ConsumerWidget {
           ),
         ),
         SizedBox(
-          height: 150,
+          height: 234,
           child: homeState.when(
             data: (data) => ListView.builder(
               scrollDirection: Axis.horizontal,

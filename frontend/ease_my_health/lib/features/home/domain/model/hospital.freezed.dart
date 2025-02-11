@@ -22,7 +22,13 @@ Hospital _$HospitalFromJson(Map<String, dynamic> json) {
 mixin _$Hospital {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
+  double get distance => throw _privateConstructorUsedError;
+  bool get isEmergencyAvailable => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
+  double get rating => throw _privateConstructorUsedError;
+  List<String> get facilities => throw _privateConstructorUsedError;
 
   /// Serializes this Hospital to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +45,16 @@ abstract class $HospitalCopyWith<$Res> {
   factory $HospitalCopyWith(Hospital value, $Res Function(Hospital) then) =
       _$HospitalCopyWithImpl<$Res, Hospital>;
   @useResult
-  $Res call({String id, String name, String imageUrl});
+  $Res call(
+      {String id,
+      String name,
+      String type,
+      String imageUrl,
+      double distance,
+      bool isEmergencyAvailable,
+      String address,
+      double rating,
+      List<String> facilities});
 }
 
 /// @nodoc
@@ -59,7 +74,13 @@ class _$HospitalCopyWithImpl<$Res, $Val extends Hospital>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? type = null,
     Object? imageUrl = null,
+    Object? distance = null,
+    Object? isEmergencyAvailable = null,
+    Object? address = null,
+    Object? rating = null,
+    Object? facilities = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -70,10 +91,34 @@ class _$HospitalCopyWithImpl<$Res, $Val extends Hospital>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      distance: null == distance
+          ? _value.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as double,
+      isEmergencyAvailable: null == isEmergencyAvailable
+          ? _value.isEmergencyAvailable
+          : isEmergencyAvailable // ignore: cast_nullable_to_non_nullable
+              as bool,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      rating: null == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+      facilities: null == facilities
+          ? _value.facilities
+          : facilities // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -86,7 +131,16 @@ abstract class _$$HospitalImplCopyWith<$Res>
       __$$HospitalImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String imageUrl});
+  $Res call(
+      {String id,
+      String name,
+      String type,
+      String imageUrl,
+      double distance,
+      bool isEmergencyAvailable,
+      String address,
+      double rating,
+      List<String> facilities});
 }
 
 /// @nodoc
@@ -104,7 +158,13 @@ class __$$HospitalImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? type = null,
     Object? imageUrl = null,
+    Object? distance = null,
+    Object? isEmergencyAvailable = null,
+    Object? address = null,
+    Object? rating = null,
+    Object? facilities = null,
   }) {
     return _then(_$HospitalImpl(
       id: null == id
@@ -115,10 +175,34 @@ class __$$HospitalImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      distance: null == distance
+          ? _value.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as double,
+      isEmergencyAvailable: null == isEmergencyAvailable
+          ? _value.isEmergencyAvailable
+          : isEmergencyAvailable // ignore: cast_nullable_to_non_nullable
+              as bool,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      rating: null == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+      facilities: null == facilities
+          ? _value._facilities
+          : facilities // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -127,7 +211,16 @@ class __$$HospitalImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$HospitalImpl implements _Hospital {
   const _$HospitalImpl(
-      {required this.id, required this.name, required this.imageUrl});
+      {required this.id,
+      required this.name,
+      required this.type,
+      required this.imageUrl,
+      required this.distance,
+      required this.isEmergencyAvailable,
+      required this.address,
+      required this.rating,
+      required final List<String> facilities})
+      : _facilities = facilities;
 
   factory _$HospitalImpl.fromJson(Map<String, dynamic> json) =>
       _$$HospitalImplFromJson(json);
@@ -137,11 +230,28 @@ class _$HospitalImpl implements _Hospital {
   @override
   final String name;
   @override
+  final String type;
+  @override
   final String imageUrl;
+  @override
+  final double distance;
+  @override
+  final bool isEmergencyAvailable;
+  @override
+  final String address;
+  @override
+  final double rating;
+  final List<String> _facilities;
+  @override
+  List<String> get facilities {
+    if (_facilities is EqualUnmodifiableListView) return _facilities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_facilities);
+  }
 
   @override
   String toString() {
-    return 'Hospital(id: $id, name: $name, imageUrl: $imageUrl)';
+    return 'Hospital(id: $id, name: $name, type: $type, imageUrl: $imageUrl, distance: $distance, isEmergencyAvailable: $isEmergencyAvailable, address: $address, rating: $rating, facilities: $facilities)';
   }
 
   @override
@@ -151,13 +261,32 @@ class _$HospitalImpl implements _Hospital {
             other is _$HospitalImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+                other.imageUrl == imageUrl) &&
+            (identical(other.distance, distance) ||
+                other.distance == distance) &&
+            (identical(other.isEmergencyAvailable, isEmergencyAvailable) ||
+                other.isEmergencyAvailable == isEmergencyAvailable) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
+            const DeepCollectionEquality()
+                .equals(other._facilities, _facilities));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, imageUrl);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      type,
+      imageUrl,
+      distance,
+      isEmergencyAvailable,
+      address,
+      rating,
+      const DeepCollectionEquality().hash(_facilities));
 
   /// Create a copy of Hospital
   /// with the given fields replaced by the non-null parameter values.
@@ -179,7 +308,13 @@ abstract class _Hospital implements Hospital {
   const factory _Hospital(
       {required final String id,
       required final String name,
-      required final String imageUrl}) = _$HospitalImpl;
+      required final String type,
+      required final String imageUrl,
+      required final double distance,
+      required final bool isEmergencyAvailable,
+      required final String address,
+      required final double rating,
+      required final List<String> facilities}) = _$HospitalImpl;
 
   factory _Hospital.fromJson(Map<String, dynamic> json) =
       _$HospitalImpl.fromJson;
@@ -189,7 +324,19 @@ abstract class _Hospital implements Hospital {
   @override
   String get name;
   @override
+  String get type;
+  @override
   String get imageUrl;
+  @override
+  double get distance;
+  @override
+  bool get isEmergencyAvailable;
+  @override
+  String get address;
+  @override
+  double get rating;
+  @override
+  List<String> get facilities;
 
   /// Create a copy of Hospital
   /// with the given fields replaced by the non-null parameter values.
