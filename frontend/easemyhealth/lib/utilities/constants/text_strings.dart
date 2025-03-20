@@ -33,8 +33,8 @@ class AppTexts {
   static const String forgetPassword = "Forget Password?";
   static const String signIn = "Sign In";
   static const String createAccount = "Create Account";
-  static const String orSignInWith = "or sign in with";
-  static const String orSignUpWith = "or sign up with";
+  static const String orSignInWith = "or";
+  static const String orSignUpWith = "or";
   static const String iAgreeTo = "I agree to";
   static const String privacyPolicy = "Privacy Policy";
   static const String termsOfUse = "Terms of use";
@@ -44,8 +44,8 @@ class AppTexts {
 
 
   // -- Authentication Headings
-  static const String loginTitle = "Welcome back,";
-  static const String loginSubTitle = "Discover Limitless Choices and Unmatched Convenience.";
+  static const String loginTitle = "Welcome back";
+  static const String loginSubTitle = "Seamless Access to Healthcare, Anytime,Anywhere!";
   static const String signupTitle = "Let’s create your account";
   static const String forgetPasswordTitle = "Forget password";
   static const String forgetPasswordSubTitle = "Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.";
@@ -64,6 +64,14 @@ class AppTexts {
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
   static const String homeAppbarSubTitle = "Sahil Gupta";
+
+  static const String appointment="Appointment Booking";
+  static const String medicalReport="Medical Reports Upload";
+  static const String medicationReminder="Medication Reminders";
+  static const String medicalHistory="Medical History";
+  static const String testing="Testing";
+  static const String emergencyServices="Emergency Services";
+  static const String searchBarHint="Search doctors, medicines or hospitals";
 
 
 }

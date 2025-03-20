@@ -1,8 +1,8 @@
 class AppImages {
-  static const String darkAppLogo = "assets/logo/logo.png";
-  static const String lightAppLogo = "assets/logo/logo.png";
+  static const String darkAppLogo = "assets/app_logo/logo.png";
+  static const String lightAppLogo = "assets/app_logo/logo.png";
 
-  static const String google = "assets/logo/google-icon.png";
+  static const String google = "assets/images/google.png";
   static const String facebook = "assets/logo/facebook-icon.png";
 
   static const String onBoardingImage1 =
