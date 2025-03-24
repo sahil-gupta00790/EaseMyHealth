@@ -12,6 +12,7 @@ import (
 
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/joho/godotenv"
+	"github.com/sahil-gupta00790/EaseMyHealth/backend/login/internal/data"
 	"github.com/sirupsen/logrus"
 )
 
@@ -31,12 +32,17 @@ type config struct {
 		burst   int
 		enabled bool
 	}
+	jwt struct {
+		secret string
+		expiry time.Duration
+	}
 }
 
 type application struct {
 	config config
 	logger *logrus.Logger
 	wg     sync.WaitGroup
+	models data.Models
 }
 
 func main() {
@@ -73,11 +79,13 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	logger.WithField("Database", err).Info("Connected to db")
 	defer db.Close()
 
 	app := &application{
 		config: cfg,
 		logger: logger,
+		models: data.NewModels(db),
 	}
 
 	err = app.server()

@@ -1,0 +1,1 @@
+DROP TABLE Token_Blacklist;

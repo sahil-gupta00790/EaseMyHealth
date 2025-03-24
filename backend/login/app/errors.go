@@ -11,11 +11,12 @@ func (app *application) logError(r *http.Request, err error) {
 
 func (app *application) errorResponse(w http.ResponseWriter, r *http.Request, status int, message interface{}) {
 	//creating the json response
+	app.logger.WithField("message", message).Info()
 	env := envelope{"error": message}
 	err := app.writeJson(w, status, env, nil)
 	if err != nil {
 		app.logError(r, err)
-		w.WriteHeader(http.StatusInternalServerError)
+		w.WriteHeader(status)
 	}
 }
 
@@ -30,4 +31,12 @@ func (app *application) serverErrorResponse(w http.ResponseWriter, r *http.Reque
 	app.logError(r, err)
 	message := "The server encounted the error and could not process the request"
 	app.errorResponse(w, r, http.StatusInternalServerError, message)
+}
+func (app *application) badRequestResponse(w http.ResponseWriter, r *http.Request, err error) {
+
+	app.errorResponse(w, r, http.StatusBadRequest, err.Error())
+}
+
+func (app *application) failedValidation(w http.ResponseWriter, r *http.Request, errors map[string]string) {
+	app.errorResponse(w, r, http.StatusUnprocessableEntity, errors)
 }
