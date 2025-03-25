@@ -1,0 +1,1 @@
+DROP TABLE doctor_consultation_prices;
