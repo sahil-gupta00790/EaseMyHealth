@@ -1,1 +1,1 @@
-DROP TABLE doctor_clinic;
+DROP TABLE doctor_clinics;

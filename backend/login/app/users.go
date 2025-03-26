@@ -80,7 +80,6 @@ func (app *application) getUserDetailsHandler(w http.ResponseWriter, r *http.Req
 		app.badRequestResponse(w, r, err)
 		return
 	}
-	app.logger.WithField("reached here", input).Info()
 
 	v := validator.New()
 

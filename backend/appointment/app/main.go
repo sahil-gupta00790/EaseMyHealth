@@ -11,7 +11,7 @@ import (
 
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/joho/godotenv"
-	"github.com/sahil-gupta00790/EaseMyHealth/backend/login/internal/data"
+	"github.com/sahil-gupta00790/EaseMyHealth/backend/appointment/internal/data"
 	"github.com/sirupsen/logrus"
 )
 
@@ -58,7 +58,7 @@ func main() {
 
 	}
 	var cfg config
-	flag.IntVar(&cfg.port, "port", 4000, "API server port")
+	flag.IntVar(&cfg.port, "port", 4001, "API server port")
 	flag.StringVar(&cfg.env, "env", "development", "Environment (development|staging|production)")
 	flag.StringVar(&cfg.db.dsn, "db-dsn", os.Getenv("DB_DSN"), "Postgres DSN")
 	flag.IntVar(&cfg.db.maxOpenConns, "db-max-open-conns", 25, "Postgres max open connections")
@@ -73,28 +73,33 @@ func main() {
 	} else {
 		logger.SetLevel(logrus.InfoLevel)
 	}
-
 	db, err := openDB(cfg)
 	if err != nil {
 		log.Fatal(err)
 	}
+	//id := uuid.New()
+	//db.QueryRow("INSERT INTO specialties (specialty_id,name,description) VALUES ($1,'General Physician','General Physician') ON CONFLICT DO NOTHING", id)
+	//id = uuid.New()
+	//db.QueryRow("INSERT INTO specialties (specialty_id,name,description) VALUES ($1,'Dentist','Dentist') ON CONFLICT DO NOTHING", id)
+	//id = uuid.New()
+	//db.QueryRow("INSERT INTO specialties (specialty_id,name,description) VALUES ($1,'Cardiologist','Cardiologist') ON CONFLICT DO NOTHING", id)
+	//id = uuid.New()
+	//db.QueryRow("INSERT INTO specialties (specialty_id,name,description) VALUES ($1,'Dermatologist','Dermatologist') ON CONFLICT DO NOTHING", id)
+	//id := uuid.New()
+	//db.QueryRow("INSERT INTO consultation_types (type_id,doctor_id,base_price) VALUES ($1,'a3f46c95-aa33-4ced-8e8f-de22a572e0f5',500) ON CONFLICT DO NOTHING", id)
 	logger.WithField("Database", err).Info("Connected to db")
 	defer db.Close()
-
 	app := &application{
 		config: cfg,
 		logger: logger,
 		models: data.NewModels(db),
 	}
-
 	err = app.server()
-
 	if err != nil {
 		logger.WithField("error", err).Fatal("Server error")
 	}
 
 }
-
 func openDB(cfg config) (*sql.DB, error) {
 	db, err := sql.Open("pgx", cfg.db.dsn)
 	if err != nil {
