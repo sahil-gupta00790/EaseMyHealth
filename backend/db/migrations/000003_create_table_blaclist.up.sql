@@ -1,4 +1,4 @@
-CREATE TABLE Token_Blacklist (
+CREATE TABLE token_blacklist (
     token_id UUID PRIMARY KEY,
     token_jti VARCHAR(255) UNIQUE NOT NULL,
     user_id UUID NOT NULL,

@@ -1,4 +1,4 @@
-CREATE TABLE User_Profiles (
+CREATE TABLE user_profiles (
     profile_id UUID PRIMARY KEY,
     user_id UUID NOT NULL,
     first_name VARCHAR(100) NOT NULL,

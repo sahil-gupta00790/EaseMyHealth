@@ -74,8 +74,8 @@ func generateSlotsForDoctor(db *sql.DB, doctorID string) {
 
 				// Insert into appointment_slots if not already existing
 				insertQuery := `
-					INSERT INTO appointment_slots (slot_id, doctor_id, availability_date, slot_start_time, slot_end_time, status, max_capacity, current_bookings)
-					SELECT gen_random_uuid(), $1, $2, $3, $4, 'AVAILABLE', $5, 0
+					INSERT INTO appointment_slots (slot_id, doctor_id, availability_date, slot_start_time, slot_end_time, status, max_capacity, current_bookings,consultation_type_id)
+					SELECT gen_random_uuid(), $1, $2, $3, $4, 'AVAILABLE', $5, 0, '22277b80-a7c6-4f35-938f-e221d683f811'
 					WHERE NOT EXISTS (
 					    SELECT 1 FROM appointment_slots WHERE doctor_id = $1 AND availability_date = $2 AND slot_start_time = $3
 					)

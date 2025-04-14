@@ -43,6 +43,15 @@ func (app *application) bookAppointmentHandler(w http.ResponseWriter, r *http.Re
 	}
 	appointmentId, err := app.models.AppointmentModel.BookAppointment(input.SlotId, input.UserId)
 	if err != nil {
+		if err.Error() == "slot not available" {
+			app.errorResponse(w, r, http.StatusBadRequest, "slot not available")
+			return
+		}
+		if err.Error() == "slot already booked" {
+			app.errorResponse(w, r, http.StatusBadRequest, "slot already booked")
+			return
+		}
+
 		app.logger.WithField("err", err).Info()
 		app.serverErrorResponse(w, r, err)
 		return
